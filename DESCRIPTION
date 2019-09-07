@@ -1,0 +1,17 @@
+Package: EffcientTrace
+Type: Package
+Title: A heuristic to efficiently calculate traces for multiplication result
+    of two large matrices
+Version: 0.1.0
+Author: Mukai Wang
+Maintainer: Mukai Wang <wangmk@umich.edu>
+Description: This package includes a function called tracecalc.
+    the function takes in the number of rows for two matrices(two matrices share the same number of rows),
+    the number of columns for the first matrix and the number of columns for the second matrix.
+    You can also adjust the number of vectors that help estimating the trace.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    dplyr
+RoxygenNote: 6.1.1.9000

@@ -1,0 +1,29 @@
+---
+title: "Efficient Trace"
+author: "Mukai Wang"
+date: "09/07/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Brief Intro
+`Efficient Trace` is a heuristic to efficiently calculate traces for multiplication result of two large matrices.
+
+## How to use
+There is a function called `tracecalc`. It takes in at least 3 parameters: the number of rows for two matrices(two matrices share the same number of rows), the number of columns for the first matrix and the number of columns for the second matrix. You can custom a fourth parameter which defines the number of vectors that help estimating the trace.
+
+## Example
+
+```{r, cache = TRUE, eval = FALSE}
+tracecalc(3000,24,13)
+```
+
+```{r, cache = TRUE, eval = FALSE}
+tracecalc(B=600,4000,16,13)
+```
+
+## Cautions
+Don't put in too large dimensions for the matrices!(~1000 should be enough)
