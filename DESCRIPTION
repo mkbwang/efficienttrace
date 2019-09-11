@@ -1,4 +1,4 @@
-Package: EffcientTrace
+Package: EfficientTrace
 Type: Package
 Title: A heuristic to efficiently calculate traces for multiplication result
     of two large matrices
