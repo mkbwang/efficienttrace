@@ -14,7 +14,7 @@ install_github("skybullbobby/efficienttrace")
 ## Usage
 
 
-There is only one function available right now. It is called `tracecalc`. Using this function we can compare the calculation speed of the trace of a large matrix which itself is a product of two matrices together with their transpose. The detailed algorithm can be checked out ![here](https://drive.google.com/open?id=1l4ZAlXXjMYrCcwa02a8PVm96stdWDH8o). An example is as follows,
+There is only one function available right now. It is called `tracecalc`. Using this function we can compare the calculation speed of the trace of a large matrix which itself is a product of two matrices together with their transpose. The detailed algorithm can be checked out [here](https://drive.google.com/open?id=1l4ZAlXXjMYrCcwa02a8PVm96stdWDH8o). An example is as follows,
 ```
 > tracecalc(2000,23,19)
 [1] "Real trace is 56426.7"
