@@ -13,20 +13,17 @@ tracecalc <- function(N,K,L,B=500){
   xl <- matrix(rbinom(N*L,1,0.1),N,L)+matrix(rbinom(N*L,1,0.1),N,L)
   ## time the calculation of traces based on raw matrix multiplication
   ptm <- proc.time()
-  realtrace <- sum(diag((xk%*%t(xk)%*%xl%*%t(xl))))/(K*L)
+  realtrace <- rawmultiply(xk,xl)/(K*L)
   origintime <- proc.time() - ptm
   print(paste(c("Real trace is",format(realtrace, ndigits=5)), collapse=" "))
-  print(paste(c("Time Spent:", format(origintime[[3]], ndigits=5)), collapse=" "))
+  print(paste(c("Time Spent:", format(origintime[[1]], ndigits=5)), collapse=" "))
   # time the calculation of heuristics
-  ptm <- proc.time()
   vecz <- matrix(rnorm(B*N),N,B)# generate B vectors, each entry iid
-  temp1 <- t(vecz)%*%xk
-  temp1 <- temp1%*%t(xk)
-  temp2 <- t(xl)%*%vecz
-  temp2 <- xl%*%temp2
-  tracesum <- sum(temp1*t(temp2))# elementwise multiplication and addition
-  simulatedtrace <- tracesum/(B*K*L)
+  ptm <- proc.time()
+  tracesum <- smartmultiply(xk, xl, vecz)
   newtime <- proc.time() - ptm
-  print(paste(c("Simulated trace is", format(simulatedtrace, ndigits=5)), collapse=" "))
-  print(paste(c("Time Spent:", format(newtime[[3]], ndigits=5)), collapse=" "))
+  simulatedtrace <- tracesum/(K*L)# a list of traces generated with different vectors
+  print(paste(c("Simulated Trace is", format(sum(simulatedtrace)/B, ndigits=5)), collapse=" "))
+  # print(paste(c("Standard Error is", format(sd(simulatedtrace), ndigits=5)), collapse=" "))
+  print(paste(c("Time Spent:", format(newtime[[1]], ndigits=5)), collapse=" "))
 }

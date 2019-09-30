@@ -15,3 +15,8 @@ LazyData: true
 Suggests: 
     dplyr
 RoxygenNote: 6.1.1.9000
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.2)
+LinkingTo: Rcpp, RcppArmadillo
+SystemRequirements: GNU make
+NeedsCompilation: yes
